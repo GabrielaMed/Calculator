@@ -1,2 +1,5 @@
-# Calculator
-Calculator with switch case
+# Em Português
+Desafio de uma calculadora.
+
+# In English
+Calculator challenge.

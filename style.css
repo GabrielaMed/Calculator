@@ -26,12 +26,13 @@ body{
 }
 
 .result{
-    height: 120px;
+    height: 110px;
 }
 
 .result input{
     background-color: transparent;
-    border: 1px solid red;
+    border: 1px solid rgba(102, 51, 153, 0.096);
+    border-radius: 5px;
     outline: none;
 }
 
@@ -43,14 +44,20 @@ body{
     height: 58px;
 }
 
-.history-value{
+#history-value{
     color: #111;
     float: right;
     font-size: 14px;
+    text-align: right;
+    padding-right: 8px;
 }
 
 .history p{
+    height: 50px;
     padding: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
 }
 
 .output{
@@ -60,12 +67,12 @@ body{
     height: 42px;
 }
 
-.output-value{
+#output-value{
     color: #111;
     display: flex;
-    float: right;
-    padding: 16px;
     font-size: 14px;
+    text-align: right;
+    padding-right: 8px;
 }
 
 .keyboard{

@@ -1,7 +1,7 @@
 # Em Português
-Desafio de uma calculadora.
+Desafio de uma calculadora usando switch case.
 
 # In English
-Calculator challenge.
+Calculator challenge using switch case.
 
-![my_calculator](https://user-images.githubusercontent.com/88834542/164987460-719085b2-c3bd-466f-ba8d-ca9ae7286b3d.png)
+![myCalculator](https://user-images.githubusercontent.com/88834542/165317757-9058ec37-42b4-43b7-89e5-7ddb4f3dfbf8.png)

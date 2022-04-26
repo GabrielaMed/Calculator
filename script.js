@@ -1,88 +1,49 @@
-/* Função history para mostrar o input do usuário */
-function getHistory(){
-    return document.getElementById("history-value").innerText;
+var currentOperator = document.getElementById("operator");
+var historyValue = document.getElementById("history-value");
+var outputValue = document.getElementById("output-value")
+
+function number(value){
+    outputValue.value = 
+    outputValue.value + value; 
 }
 
-function printHistory(num){
-    document.getElementById("history-value").innerText = num;
-}
-
-/* Função output pra mostrar o resultado */
-function getOutput(){
-    return document.getElementById("output-value").innerText;
-}
-
-function printOutput(num){
-    if (num == ""){
-        document.getElementById("output-value").innerText = num;
+function operator(value){
+    currentOperator.innerHTML = value;
+    if(!historyValue.value){
+        historyValue.value = outputValue.value;
+        outputValue.value="";
     }
     else{
-        document.getElementById("output-value").innerText = getFormattedNumber(num);
+        result();
     }
 }
 
-function getFormattedNumber(num){
-    if(num == "-"){
-        return "";
+function result(){
+    let valueOne = parseFloat(historyValue.value);
+    let valueTwo = parseFloat(outputValue.value);
+
+    switch(currentOperator.innerHTML){
+        case "+":
+            result = valueOne + valueTwo
+        break;
+        case "-":
+            result = valueOne - valueTwo
+        break;
+        case "/":
+            result = valueOne / valueTwo
+        break;
+        case "x":
+            result = valueOne * valueTwo
+        break;
+        case "%":
+            result = (valueOne * valueTwo)/100 
+        break;
+        default:
+            result = "errado! =("
+        break;
     }
-    var n = Number(num);
-    var value = n.toLocaleString("en");
-    return value;
-}
-
-/* Função para limpar comas(?) no campo output */
-function reverseNumberFormat(num){
-    return Number(num.replace(/, /g, ''));
-}
-
-var operator = document.getElementsByClassName("operator");
-for(var i = 0; i < operator.length; i++){
-    operator[i].addEventListener("click", function() {
-        if(this.id == "clear"){
-            printHistory("");
-            printOutput("");
-        }
-        else if(this.id == "backspace"){
-            var output = reverseNumberFormat(getOutput()).toString();
-            if (output){ /* se output tiver um valor */
-                output = output.substr(0, output.length-1)
-                printOutput(output);
-            }
-        }
-        else{
-            var output = getOutput();
-            var history = getHistory();
-            if(output == "" && history != ""){
-                if(isNaN(history[history.length-1])){
-                    history = history.substr(0, history.length-1);
-                }
-            }
-            if(output != "" || history != ""){
-                output = output == ""?
-                output:reverseNumberFormat(output);
-                history = history + output;
-                if(this.id == "="){
-                    var result = eval(history);
-                    printOutput(result);
-                    printHistory("");
-                }
-                else{
-                    history = history + this.id;
-                    printHistory(history);
-                    printOutput("");
-                }
-            }
-        }
-    });
-}
-
-var number = document.getElementsByClassName("number");
-for(var i = 0; i < number.length; i++){
-    number[i].addEventListener("click", function(){
-        var output = reverseNumberFormat(getOutput());
-        if(output != NaN){ /* se o output for um número */
-            output = output + this.id;
-            printOutput(output);
-        }
-    });
+    alert(`Resultado dessa operação deu ${result}`);
+    outputValue.value="";
+    historyValue.value="";
+    currentOperator.innerHTML="";
 }

@@ -29,28 +29,52 @@ body{
     height: 120px;
 }
 
+.result input{
+    background-color: transparent;
+    border: 1px solid red;
+    outline: none;
+}
+
 .history{
-    text-align: right;
-    height: 20px;
-    margin: 0 20px;
-    padding-top: 20px;
-    font-size: 15px;
-    color: #ccc;
+    color: #111;
+    display: flex;
+    float: right;
+    padding: 8px 16px;
+    height: 58px;
+}
+
+.history-value{
+    color: #111;
+    float: right;
+    font-size: 14px;
+}
+
+.history p{
+    padding: 5px;
 }
 
 .output{
-    text-align: right;
-    height: 60px;
-    margin: 10px 20px;
-    font-size: 30px;
+    display: flex;
+    float: right;
+    margin-right: 16px;
+    height: 42px;
+}
+
+.output-value{
+    color: #111;
+    display: flex;
+    float: right;
+    padding: 16px;
+    font-size: 14px;
 }
 
 .keyboard{
     display: grid;
     justify-content: center;
     align-items: center;
+    padding-bottom: 8px;
     grid-template-columns: repeat(4, 70px);
-    grid-template-rows: minmax(70px, auto) repeat(4, 60px);
+    grid-template-rows: minmax(80px, auto) repeat(3, 60px);
 }
 
 .operator, .number, .empty{
@@ -70,10 +94,6 @@ body{
     background-color: transparent;
 }
 
-.operator{
-    background-color: #b1bdf0;
-}
-
 .number, .operator{
     cursor: pointer;
 }
@@ -84,6 +104,11 @@ body{
 
 .operator:focus, .number:focus, .empty:focus{
     outline: none;
+}
+
+.operator:nth-child(3){
+    font-size: 18px;
+    background-color: #afa3ec;
 }
 
 .operator:nth-child(4){
